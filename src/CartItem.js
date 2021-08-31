@@ -9,13 +9,55 @@ class CartItem extends React.Component {
       qty : 1,
       img : '' 
     }
-    
-    // this.IncreaseQuantity = this.IncreaseQuantity.bind(this);
-    // 
-    //another Way to use Find  Function  -> ( = => )
+   // this.testing();
   }
-  IncreaseQuantity = () => {
-    console.log('this',this.state);
+
+  // testing () {
+  //   const promise = new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve('done');
+  //     }, 5000);
+  //   })
+
+  //   promise.then(() => {
+  //     // setState acts like a synchronus call
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     console.log('state', this.state);
+  //   });
+  // }
+  increaseQuantity = () => {
+    // this.state.qty += 1;
+    // console.log('this', this.state);
+    // setState form 1
+    // this.setState({
+    //   qty: this.state.qty + 1
+    // }, () => {});
+
+    // setState form 2 - if prevState required use this
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty + 1
+      }
+    });
+  }
+
+  decreaseQuantity = () => {
+    const { qty } = this.state;
+
+    if (qty === 0) {
+      return;
+    }
+    // setState form 2 - if prevState required use this
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty - 1
+      }
+    });
   }
   render () {
   const { price,title,qty} = this.state;
@@ -36,7 +78,15 @@ class CartItem extends React.Component {
             src = "https://cdn-icons-png.flaticon.com/512/64/64522.png"
             // use this IncreaseQuantity in contructor
             // onClick = {this.IncreaseQuantity.bind(this)}
-            onClick = {this.IncreaseQuantity}
+            onClick = {this.increaseQuantity}
+            />  
+            <img
+            alt = "Decrease"
+            className = "action-icons"
+            src = "https://img-premium.flaticon.com/png/512/1665/premium/1665663.png?token=exp=1630429617~hmac=88c32141ca5458612c54090b159b8804"
+            // use this IncreaseQuantity in contructor
+            // onClick = {this.IncreaseQuantity.bind(this)}
+            onClick = {this.decreaseQuantity}
             />
           </div>
         </div>
