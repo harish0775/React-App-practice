@@ -7,8 +7,15 @@ class CartItem extends React.Component {
       price : 999,
       title : 'Telephone',
       qty : 1,
-      img : ''
+      img : '' 
     }
+    
+    // this.IncreaseQuantity = this.IncreaseQuantity.bind(this);
+    // 
+    //another Way to use Find  Function  -> ( = => )
+  }
+  IncreaseQuantity = () => {
+    console.log('this',this.state);
   }
   render () {
   const { price,title,qty} = this.state;
@@ -18,14 +25,19 @@ class CartItem extends React.Component {
           <img style={styles.image} />
         </div>
         <div className="right-block">
-
-           {/* instant of use this.state.price   use const {price,title,qty } = this.state*/}
-          {/* <div style={ { fontSize: 25 } }>{this.state.title}</div> */}
           <div style={ { fontSize: 25 } }>{title}</div>
           <div style={ { color: '#777' } }>{price}</div>
           <div style={ { color: '#777' } }>{qty}</div>
           <div className="cart-item-actions">
             {/* Buttons */}
+            <img
+            alt = "Increase"
+            className = "action-icons"
+            src = "https://cdn-icons-png.flaticon.com/512/64/64522.png"
+            // use this IncreaseQuantity in contructor
+            // onClick = {this.IncreaseQuantity.bind(this)}
+            onClick = {this.IncreaseQuantity}
+            />
           </div>
         </div>
       </div>
