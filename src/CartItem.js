@@ -9,37 +9,10 @@ class CartItem extends React.Component {
       qty : 1,
       img : '' 
     }
-   // this.testing();
+  
   }
-
-  // testing () {
-  //   const promise = new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve('done');
-  //     }, 5000);
-  //   })
-
-  //   promise.then(() => {
-  //     // setState acts like a synchronus call
-  //     this.setState({ qty: this.state.qty + 10 });
-
-  //     this.setState({ qty: this.state.qty + 10 });
-
-  //     this.setState({ qty: this.state.qty + 10 });
-
-  //     console.log('state', this.state);
-  //   });
-  // }
   increaseQuantity = () => {
-    // this.state.qty += 1;
-    // console.log('this', this.state);
-    // setState form 1
-    // this.setState({
-    //   qty: this.state.qty + 1
-    // }, () => {});
-
-    // setState form 2 - if prevState required use this
-    this.setState((prevState) => {
+     this.setState((prevState) => {
       return {
         qty: prevState.qty + 1
       }
@@ -59,6 +32,8 @@ class CartItem extends React.Component {
       }
     });
   }
+
+  
   render () {
   const { price,title,qty} = this.state;
     return (
@@ -84,9 +59,12 @@ class CartItem extends React.Component {
             alt = "Decrease"
             className = "action-icons"
             src = "https://img-premium.flaticon.com/png/512/1665/premium/1665663.png?token=exp=1630429617~hmac=88c32141ca5458612c54090b159b8804"
-            // use this IncreaseQuantity in contructor
-            // onClick = {this.IncreaseQuantity.bind(this)}
             onClick = {this.decreaseQuantity}
+            />
+            <img
+            alt = "Delete"
+            className = "action-icons"
+            src = "https://img-premium.flaticon.com/png/512/484/premium/484611.png?token=exp=1630431275~hmac=91e78dc0bf8cffcf53c53c8a5cc329d8"
             />
           </div>
         </div>
