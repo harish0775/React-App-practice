@@ -56,4 +56,5 @@ const styles = {
   }
 }
 
+
 export default CartItem;
