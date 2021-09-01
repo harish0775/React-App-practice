@@ -1,30 +1,6 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-
-  increaseQuantity = () => {
-     this.setState((prevState) => {
-      return {
-        qty: prevState.qty + 1
-      }
-    });
-  }
-
-  decreaseQuantity = () => {
-    const { qty } = this.state;
-
-    if (qty === 0) {
-      return;
-    }
-    // setState form 2 - if prevState required use this
-    this.setState((prevState) => {
-      return {
-        qty: prevState.qty - 1
-      }
-    });
-  }
-
-  
   render () {
     console.log('this.props',this.props);
      const { price,title,qty} = this.props.product;
@@ -45,7 +21,10 @@ class CartItem extends React.Component {
             src = "https://cdn-icons-png.flaticon.com/512/64/64522.png"
             // use this IncreaseQuantity in contructor
             // onClick = {this.IncreaseQuantity.bind(this)}
-            onClick = {this.increaseQuantity}
+            onClick = {
+              () => this.props.OnIncreaseQuantity(this.props.product)
+            
+            }
             />  
             <img
             alt = "Decrease"
