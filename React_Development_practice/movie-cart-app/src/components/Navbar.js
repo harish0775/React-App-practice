@@ -1,18 +1,48 @@
-import React from "react";
+import React, { Component } from 'react';
+import { data } from '../data';
 
-class Navbar extends React.Component {
-     render() {
-         return (
-             <div className ="nav">
-                 <div className = "search-container">
-                       < input />
-                      
-                       <button id = "search-btn"> Search </button>
-                 </div>
-                 
-             </div>
-         );
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showSearchResults: true
+    };
+  }
+  handleAddToMovies = () => {
+    // mini assignment
+  };
+
+  handleSearch = () => {
+    // next session
+  };
+
+  render() {
+    const { showSearchResults } = this.state;
+    return (
+      <div className="nav">
+        <div className="search-container">
+          <input />
+          <button id="search-btn" onClick={this.handleSearch}>
+            Search
+          </button>
+
+          {showSearchResults && (
+            <div className="search-results">
+              <div className="search-result">
+                <img src={data[0].Poster} alt="search-pic" />
+                <div className="movie-info">
+                  <span>{data[0].Title}</span>
+                  <button onClick={this.handleAddToMovies}>
+                    Add to Movies
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
-}
+
 export default Navbar;
-
