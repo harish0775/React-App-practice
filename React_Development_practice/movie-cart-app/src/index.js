@@ -10,7 +10,7 @@ const store = createStore(movies);
 // console.log(store);
 // console.log('state', store.getState());
 
-// // update store by dispatching actions
+// // update store by dispatching actions  
 // store.dispatch({
 //   type: 'ADD_MOVIES',
 //   movies: moviesList
