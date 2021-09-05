@@ -13,7 +13,10 @@ function App(props) {
           <div className="tab">Movies</div>
           <div className="tab">Favourites</div>
         </div>
-              
+              git remote set-url origin https://github.com/user/repo2.git
+              https://github.com/harish0775/React-App-practice
+              git pull https://github.com/harish0775/React-App-practice
+
         <div id="list">
           {movies.map((movie,index) => (
             <MovieCard movie={movie} key ={`movies-${index}`} />
