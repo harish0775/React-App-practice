@@ -1,32 +1,37 @@
 import React from 'react';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
+import { data as moviesList } from '../data';
 
+class App extends React.Component {
+  componentDidMount() {
+    this.props.store.subscribe(() => this.forceUpdate());
+    this.props.store.dispatch({
+      type: 'ADD_MOVIES',
+      movies: moviesList
+    });
+  }
 
-function App(props) {
-  const movies = props.store.getState();
-  return (
-    <div className="App">
-      <Navbar />
-      <div className="main">
-        <div className="tabs">
-          <div className="tab">Movies</div>
-          <div className="tab">Favourites</div>
-        </div>
-              git remote set-url origin https://github.com/user/repo2.git
-              https://github.com/harish0775/React-App-practice
-              git pull https://github.com/harish0775/React-App-practice
+  render() {
+    const data = this.props.store.getState();
+    return (
+      <div className="App">
+        <Navbar />
+        <div className="main">
+          <div className="tabs">
+            <div className="tab">Movies</div>
+            <div className="tab">Favourites</div>
+          </div>
 
-        <div id="list">
-          {movies.map((movie,index) => (
-            <MovieCard movie={movie} key ={`movies-${index}`} />
-          ))}
+          <div id="list">
+            {data.map(movie => (
+              <MovieCard movie={movie} key={movie.imdbID} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
-
-
