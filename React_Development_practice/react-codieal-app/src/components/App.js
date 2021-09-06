@@ -1,11 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
+class App extends React.Component {
   render() {
-    return (
-      <div>
-        <h1> App</h1>
-      </div>
-    )
+    console.log('Props', this.props);
+    return <div>App</div>;
   }
 }
+function napStateToprops(state) {
+  return {
+    posts: state.posts,
+  };
+}
+
+export default connect(napStateToprops)(App);
