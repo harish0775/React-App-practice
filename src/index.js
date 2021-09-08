@@ -7,4 +7,5 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
    
  
-    
+    git add .
+    git commit -m"add file"
