@@ -83,4 +83,4 @@ import {
     movies,
     search
   });
-  
+  npx create-react-app react-codieal-app cd react-codieal-app npm start
